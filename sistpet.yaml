@@ -1,0 +1,182 @@
+openapi: 3.0.0
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/dswi6/TesteAPI/1.0.0
+info:
+  description: arquivo swagger sistpet
+  version: "1.0.0"
+  title: sistper swagger
+  contact:
+    email: igor00guima@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: patrimonio
+    description: Todos os endpoints sobre itens de patrimonio
+paths:
+  /patrimonio:
+    get:
+      summary: Busca todos os itens das apis do sistema
+      tags:
+        - patrimonio
+      description: |
+        O cliente não precisa passar nenhuma informação. Apenas acessando este endpoint, 
+        ele obterá todos os itens do sistema.
+      parameters:
+        - in: query
+          name: searchString
+          description: pass an optional search string for looking up inventory
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: skip
+          description: number of records to skip for pagination
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: limit
+          description: maximum number of records to return
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 50
+      responses:
+        '200':
+          description: Retorno de todos os itens de produtos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/products'
+        '400':
+          description: bad input parameter
+    post:
+      summary: Adiciona um novo item de produto
+      tags:
+        - patrimonio
+      description: Adiciona um item ao sistema
+      responses:
+        '201':
+          description: novo item criado
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: Um item com esses dados já existe
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/products'
+        description: Dado de inventario a ser adicionado
+  /patrimonio/{id_patrimonio}:
+    get:
+      summary: Busca o usuário
+      tags:
+        - patrimonio
+      description: |
+        O cliente passa um user.
+      parameters: 
+        - in: path
+          name: id_user
+          description: User ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retorna o user
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/users'
+        '404':
+          description: user não encontrado
+    delete:
+      summary: Remove o user
+      tags:
+        - user
+      description: |
+        O cliente passa um user cadastrado
+      parameters: 
+        - in: path
+          name: id_user
+          description: User ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retorna o usuário informado
+          content:
+            application/text:
+              example: usuário removido
+        '404':
+          description: usuário não encontrado
+
+components:
+  schemas:
+    ItemPatrimonio:
+      type: object
+      required:
+        - products
+        - pets
+        - user
+        - nfs
+      properties:
+        products:
+          type: string
+          example: SHAMPOO-001
+        descricao:
+          type: string
+          example: Shampoo
+        itemTipo:
+          $ref: '#/components/schemas/products'
+        pets:
+          type: string
+          format: string
+          example: 'name example'
+        descricao:
+          type: string
+          example: Nome Sobrenome
+        responsavel:
+          $ref: '#/components/schemas/pets'
+        user:
+          type: string
+          example: Nome Sobrenome
+        responsavel:
+          $ref: '#/components/schemas/user'
+        user:
+          type: number
+          example: 1234567890
+        responsavel:
+          $ref: '#/components/schemas/nf'
+    ItemTipo:
+      properties:
+        nome:
+          type: string
+          example: Cachorro
+        descricao:
+          type: string
+          example: rações
+        imagem:
+          type: string
+          format: url
+          example: 'https://www.acme-corp.com'
+    Responsavel:
+      properties:
+        prontuario:
+          type: string
+          example: BP3005127
+        nome:
+          type: string
+          example: Igor Murici Guimarães Santos
+        email:
+          type: string
+          format: email
+          example: igor00guima@gmail.com
