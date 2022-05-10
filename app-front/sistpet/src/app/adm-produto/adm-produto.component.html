@@ -2,25 +2,35 @@
   <div class="header">
     <div class="frase">“Nada na vida é fácil, então lute”</div>
     <div class="carrinho">logo carrinho</div>
-    <div class="login">icone login botaologin</div>
+    <div class="login">
+      <span class="material-symbols-outlined"> settings </span>
+    </div>
   </div>
   <div class="selectors">
-    <div class="btnAdd">botao adicionar</div>
-    <div class="input-search">filtro de busca</div>
+    <div class="button is-primary btnAdd">Novo produto</div>
+    <div class="input-search">
+      <input class="input" type="text" placeholder="Buscar por produto" />
+    </div>
   </div>
   <div class="pages">
     <div class="produtos">
-      <div class="foto">foto do produto</div>
+      <div class="foto">
+        <figure class="image is-128x128">
+          <img
+            src="https://img.freepik.com/vetores-gratis/modelo-de-rotulo-de-racao-para-cachorro-vetor-abstrato-design-de-embalagem-layout-banner-de-tipografia-moderna_167715-2125.jpg?w=2000"
+          />
+        </figure>
+      </div>
       <div class="botoes">
-        <button>add</button>
-        <button>excluir</button>
+        <button class="button is-primary">Adicionar produto</button>
+        <button class="button is-danger">excluir produto</button>
       </div>
       <div class="valores">
-        <div class="valorCompra">33</div>
-        <div class="valorVenda">99</div>
+        <div class="tag is-info valorCompra">valor de compra: 33.30</div>
+        <div class="tag is-primary valorVenda">Valor de venda: R$ 99.90</div>
       </div>
-      <div class="nomeProduto">racao de cachorro</div>
-      <div class="description">lorem ipsum dolor sit amet</div>
+      <div class="tag is-info nomeProduto">Ração \PusKás 1Kg</div>
+      <div class="tag is-light description">lorem ipsum dolor sit amet</div>
     </div>
   </div>
 </div>
