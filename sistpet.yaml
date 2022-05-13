@@ -3,26 +3,26 @@ servers:
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/dswi6/TesteAPI/1.0.0
 info:
-  description: arquivo swagger sistpet
+  description: Projeto Sistpet
   version: "1.0.0"
-  title: sistper swagger
+  title: Sistpet
   contact:
-    email: igor00guima@gmail.com
+    email: igor.santos@aluno.ifsp.edu.br
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 tags:
-  - name: patrimonio
-    description: Todos os endpoints sobre itens de patrimonio
+  - name: produto
+    description: Todos os endpoints sobre itens de produto
 paths:
-  /patrimonio:
+  /produto:
     get:
-      summary: Busca todos os itens das apis do sistema
+      summary: Busca todos os itens do inventário do produto
       tags:
-        - patrimonio
+        - produto
       description: |
         O cliente não precisa passar nenhuma informação. Apenas acessando este endpoint, 
-        ele obterá todos os itens do sistema.
+        ele obterá todos os itens.
       parameters:
         - in: query
           name: searchString
@@ -46,137 +46,181 @@ paths:
             minimum: 0
             maximum: 50
       responses:
-        '200':
-          description: Retorno de todos os itens de produtos
+        "200":
+          description: Retorno de todos os itens de produto
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/products'
-        '400':
+                  $ref: "#/components/schemas/ItemProduto"
+                example:
+                  - patrimonio: 01
+                    descricao: Ração de cachorro
+                    itemTipo:
+                      nome: racaodecachorro
+                      descricao: Comida de pets
+                      imagem: C:\Users\igor0\sistpetWeb\app-front\sistpet\src\app\racao_cachorro.webp
+                    dataAquisicao: "2022-05-12T08:44:53.001Z"
+                    precoAquisicao: 99.90
+                    departamento: racao
+                    responsavel:
+                      prontuario: 01
+                      nome: Igor Murici
+                      telefone: 408-867-5309
+                      email: igor.santos@aluno.ifsp.edu.br
+
+                  # - patrimonio: IFSP-BR-002
+                  #   descricao: Carteira
+                  #   itemTipo:
+                  #     nome: Sala de aula
+                  #     descricao: Materiais de sala de aula
+                  #     imagem: https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80
+                  #   dataAquisicao: "2016-08-29T09:12:33.001Z"
+                  #   precoAquisicao: 999.99
+                  #   departamento: CAE
+                  #   responsavel:
+                  #     prontuario: BP0910292
+                  #     nome: Luiz Gustavo Véras
+                  #     telefone: 408-867-5309
+                  #     email: gustavo_veras@ifsp.edu.br
+
+                  # - patrimonio: IFSP-BR-003
+                  #   descricao: Bebedouro
+                  #   itemTipo:
+                  #     nome: Infraestrutura
+                  #     descricao: Materiais utilizados em corredores e de infraestrutura
+                  #     imagem: https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80
+                  #   dataAquisicao: "2016-08-29T09:12:33.001Z"
+                  #   precoAquisicao: 999.99
+                  #   departamento: Almoxarifado
+                  #   responsavel:
+                  #     prontuario: BP0910292
+                  #     nome: Luiz Gustavo Véras
+                  #     telefone: 408-867-5309
+                  #     email: gustavo_veras@ifsp.edu.br
+        "400":
           description: bad input parameter
     post:
-      summary: Adiciona um novo item de produto
+      summary: Adiciona um novo item ao inventário de produto
       tags:
-        - patrimonio
+        - produto
       description: Adiciona um item ao sistema
       responses:
-        '201':
+        "201":
           description: novo item criado
-        '400':
-          description: 'invalid input, object invalid'
-        '409':
+        "400":
+          description: "invalid input, object invalid"
+        "409":
           description: Um item com esses dados já existe
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/products'
+              $ref: "#/components/schemas/ItemProduto"
         description: Dado de inventario a ser adicionado
   /patrimonio/{id_patrimonio}:
     get:
-      summary: Busca o usuário
+      summary: Busca o itens do inventário para um produto informado
       tags:
-        - patrimonio
+        - produto
       description: |
-        O cliente passa um user.
-      parameters: 
+        O cliente passa um produto registrado para buscar os dados do item correspondente.
+      parameters:
         - in: path
-          name: id_user
+          name: id_produto
           description: User ID
           required: true
           schema:
             type: string
       responses:
-        '200':
-          description: Retorna o user
+        "200":
+          description: Retorno o item para produto informado
           content:
             application/json:
               schema:
-                  $ref: '#/components/schemas/users'
-        '404':
-          description: user não encontrado
+                $ref: "#/components/schemas/ItemProduto"
+        "404":
+          description: Item não encontrado para o produto informado
     delete:
-      summary: Remove o user
+      summary: Remove o item com o produto informado
       tags:
-        - user
+        - produto
       description: |
-        O cliente passa um user cadastrado
-      parameters: 
+        O cliente passa um produto registrado para buscar os dados do item correspondente.
+      parameters:
         - in: path
-          name: id_user
-          description: User ID
+          name: id_produto
+          description: Produto ID
           required: true
           schema:
             type: string
       responses:
-        '200':
-          description: Retorna o usuário informado
+        "200":
+          description: Retorno de mensagem removida para produto informado
           content:
             application/text:
-              example: usuário removido
-        '404':
-          description: usuário não encontrado
+              example: Item removido
+        "404":
+          description: Item não encontrado para o produto informado
 
 components:
   schemas:
-    ItemPatrimonio:
+    ItemProduto:
       type: object
       required:
-        - products
-        - pets
-        - user
-        - nfs
+        - produto
+        - descricao
+        - itemTipo
+        - dataAquisicao
+        - precoAquisicao
+        - departamento
+        - responsavel
       properties:
-        products:
+        produto:
           type: string
-          example: SHAMPOO-001
+          example: 01
         descricao:
           type: string
-          example: Shampoo
+          example: racao
         itemTipo:
-          $ref: '#/components/schemas/products'
-        pets:
+          $ref: "#/components/schemas/ItemTipo"
+        dataAquisicao:
           type: string
-          format: string
-          example: 'name example'
-        descricao:
-          type: string
-          example: Nome Sobrenome
-        responsavel:
-          $ref: '#/components/schemas/pets'
-        user:
-          type: string
-          example: Nome Sobrenome
-        responsavel:
-          $ref: '#/components/schemas/user'
-        user:
+          format: date-time
+          example: "2012-05-12T08:12:33.001Z"
+        precoAquisicao:
           type: number
-          example: 1234567890
+          example: 33.30
+        departamento:
+          type: string
+          example: racao
         responsavel:
-          $ref: '#/components/schemas/nf'
+          $ref: "#/components/schemas/Responsavel"
     ItemTipo:
       properties:
         nome:
           type: string
-          example: Cachorro
+          example: Produto
         descricao:
           type: string
-          example: rações
+          example: Comida para pets
         imagem:
           type: string
           format: url
-          example: 'https://www.acme-corp.com'
+          example: "C:\Users\igor0\sistpetWeb\app-front\sistpet\src\app\racao_cachorro.webp"
     Responsavel:
       properties:
         prontuario:
           type: string
-          example: BP3005127
+          example: 01
         nome:
           type: string
-          example: Igor Murici Guimarães Santos
+          example: Igor Murici
+        telefone:
+          type: string
+          example: 408-867-5309
         email:
           type: string
           format: email
-          example: igor00guima@gmail.com
+          example: igor.santos@aluno.ifsp.edu.br
