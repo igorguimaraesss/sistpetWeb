@@ -7,7 +7,9 @@
     </div>
   </div>
   <div class="selectors">
-    <div class="button is-primary btnAdd">Novo produto</div>
+    <div class="button is-primary btnAdd" (click)="openModal()">
+      Novo produto
+    </div>
     <div class="input-search">
       <input class="input" type="text" placeholder="Buscar por produto" />
     </div>
@@ -31,6 +33,9 @@
       </div>
       <div class="tag is-info nomeProduto">Ração \PusKás 1Kg</div>
       <div class="tag is-light description">lorem ipsum dolor sit amet</div>
+    </div>
+    <div class="modal" id="modal">
+      <p>a</p>
     </div>
   </div>
 </div>

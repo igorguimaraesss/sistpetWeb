@@ -3,13 +3,16 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-adm-produto',
   templateUrl: './adm-produto.component.html',
-  styleUrls: ['./adm-produto.component.scss']
+  styleUrls: ['./adm-produto.component.scss'],
 })
 export class AdmProdutoComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  modal = true;
+
+  openModal() {
+    this.modal = !this.modal;
   }
-
 }
