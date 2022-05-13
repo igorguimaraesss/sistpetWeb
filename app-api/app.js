@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser"); // Necessário para interpretar o corpo das requisições HTTP
 const cors = require("cors");
-const produto = require("./src/api/routes/produto");
+const ItemProdutoRoutes = require("./src/api/routes/ItemProdutoRoute");
 const app = express();
 
 //Configuração dos middlewares
@@ -13,7 +13,7 @@ app.use(bodyParser.json()); // Converterá qualquer corpo em JSON em um objeto j
 //     res.send("Express server");
 //     res.end();
 // });
-app.use(produto);
+app.use(ItemProdutoRoutes);
 
 //Exporta o aplicativo express configurado
 module.exports = app;
