@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { ModalAddProdutoComponent } from 'modal-add-produto.component.ts';
-import { ModalAddProdutoComponent } from './modal-add-produto/modal-add-produto.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adm-produto',
@@ -8,13 +7,17 @@ import { ModalAddProdutoComponent } from './modal-add-produto/modal-add-produto.
   styleUrls: ['./adm-produto.component.scss'],
 })
 export class AdmProdutoComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   modal = true;
 
-  openModal() {
-    this.modal = !this.modal;
+  // openModal() {
+  //   this.modal = !this.modal;
+  // }
+
+  goToLogin() {
+    this.router.navigate(['/modal-add-produto']);
   }
 }

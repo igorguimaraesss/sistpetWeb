@@ -11,8 +11,8 @@
     </div>
   </div>
   <div class="selectors">
-    <div class="button is-primary btnAdd" (click)="openModal()">
-      Novo produto
+    <div class="button is-primary btnAdd">
+      <a routerLink="/modal-add-produto">Novo produto</a><br />
     </div>
     <div class="input-search">
       <input class="input" type="text" placeholder="Buscar por produto" />
@@ -39,7 +39,8 @@
       <div class="tag is-light description">lorem ipsum dolor sit amet</div>
     </div>
     <div class="modal" value="modal" id="modal">
-      <app-modal-add-produto></app-modal-add-produto>
+      <hr />
+      <a routerLink="/modal-add-produto">Adicionar</a><br />
     </div>
   </div>
 </div>

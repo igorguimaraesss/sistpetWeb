@@ -11,6 +11,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
-    window.location.href = 'http://www.devmedia.com.br';
+    // window.location.href = 'http://www.devmedia.com.br';
   }
 }

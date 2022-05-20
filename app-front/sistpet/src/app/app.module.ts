@@ -8,9 +8,11 @@ import { AdmProdutoComponent } from './adm-produto/adm-produto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { ModalAddProdutoComponent } from './adm-produto/modal-add-produto/modal-add-produto.component';
+import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AdmProdutoComponent, ModalAddProdutoComponent],
+  declarations: [AppComponent, LoginComponent, AdmProdutoComponent, ModalAddProdutoComponent, SignupComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
