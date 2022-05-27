@@ -1,11 +1,6 @@
-// const ItemPatrimonioRepository = require("../repositories/ItemPatrimonioRepository");
 const produtoService = require("../services/produtoService");
 
 module.exports = {
-  /* Perceba que o objeto response, do sequelize, 
-       é recebprodutoServiceido aqui. Importante para responder a 
-       requisição de forma assíncrona. 
-    */
   listAll: function (req, res) {
     //Blocking operation (Não fazer)
     //return ItemPatrimonioRepository.all()
