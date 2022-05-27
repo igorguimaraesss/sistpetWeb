@@ -7,7 +7,7 @@
   margin: 0 auto;
 
   .content {
-    display: inline-flex;
+    display: grid;
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -16,7 +16,7 @@
       margin-left: 0;
       padding: 2px;
       width: 200px;
-      min-height: 600px;
+      min-height: 200px;
       height: auto;
       background-color: #78279d;
 
@@ -29,10 +29,14 @@
           color: yellow;
         }
       }
+    }
 
-      .header {
-        display: flex;
-      }
+    .header {
+      margin-top: 0;
+      width: 500px;
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 }
