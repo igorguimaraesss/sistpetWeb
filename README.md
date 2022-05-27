@@ -22,4 +22,8 @@ aplique o comando: cd sistpet
 
 # 4° este comando inicia o servidor na porta 4200, basta acessa-lo no navegador.
 
-aplique o comando: cd sistpet
+aplique o comando: ng serve
+
+# se necessário
+
+se não rodar de primeiro rode o comando npm install -g @angular/cli e depois rode o comando ng serve novamente
