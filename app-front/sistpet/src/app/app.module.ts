@@ -10,9 +10,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { ModalAddProdutoComponent } from './adm-produto/modal-add-produto/modal-add-produto.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { HomeUsuarioComponent } from './home-usuario/home-usuario.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AdmProdutoComponent, ModalAddProdutoComponent, SignupComponent, HomeComponent],
+  declarations: [AppComponent, LoginComponent, AdmProdutoComponent, ModalAddProdutoComponent, SignupComponent, HomeComponent, HomeUsuarioComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
