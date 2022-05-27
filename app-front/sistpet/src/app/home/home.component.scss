@@ -1,22 +1,21 @@
 .home {
   background-color: #fff;
-  display: flex;
-  color: yellow;
+  display: grid;
   width: 100%;
   height: 100%;
   margin: 0 auto;
 
-  .content {
-    display: grid;
+  .navigator {
+    display: flex;
     width: 100%;
     height: 100%;
-    margin: 0 auto;
+    margin-top: 0;
+    color: yellow;
 
     .navigation {
       margin-left: 0;
       padding: 2px;
-      width: 200px;
-      min-height: 200px;
+      width: 30%;
       height: auto;
       background-color: #78279d;
 
@@ -24,19 +23,25 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
+        font-size: 21px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
 
         li a {
           color: yellow;
         }
       }
     }
-
     .header {
-      margin-top: 0;
-      width: 500px;
-      display: inline-flex;
+      width: 70%;
+      display: flex;
       justify-content: space-between;
-      align-items: center;
     }
+  }
+
+  .content {
+    width: 100%;
+    height: 80%;
+    align-items: center;
   }
 }
