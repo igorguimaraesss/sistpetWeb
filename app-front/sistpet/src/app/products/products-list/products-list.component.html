@@ -5,16 +5,26 @@
     </button>
   </div>
 </div>
+<hr />
 <div class="row">
   <div class="col-xs-12">
-    <a href="#" class="list-group-item clearfix">
+    <a
+      href="#"
+      class="list-group-item clearfix"
+      *ngFor="let product of products"
+    >
       <div class="pull-left">
-        <h4 class="list-group-item-heading">product name</h4>
-        <p class="list-group-item-text">product desc</p>
+        <h4 class="list-group-item-heading">{{ product.name }}</h4>
+        <p class="list-group-item-text">{{ product.description }}</p>
       </div>
       <span class="pull-right">
-        <img src="" alt="" class="img-responsive" style="max-height: 50px" />
-        <div class="price">product price</div>
+        <img
+          [src]="product.imagePath"
+          alt="{{ product.name }}"
+          class="img-responsive"
+          style="max-height: 50px"
+        />
+        <div class="price">{{ product.price }}</div>
       </span>
     </a>
     <app-product-item></app-product-item>
