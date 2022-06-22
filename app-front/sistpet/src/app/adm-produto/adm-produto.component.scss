@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+}
+.titulo {
+  background-color: #000;
+  color: #fff;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.imagem {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
