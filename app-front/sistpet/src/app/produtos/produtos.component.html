@@ -44,10 +44,10 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-danger">
+            <a class="button is-danger" routerLink="/cadastre-se">
               <strong>sair</strong>
             </a>
-            <a class="button is-link"> carrinho </a>
+            <a class="button is-link" routerLink="/carrinho"> carrinho </a>
           </div>
         </div>
       </div>
@@ -68,8 +68,12 @@
           <p>1Kg ração p/cachorro</p>
           <p>R$ 99,90</p>
           <div class="buttons">
-            <button class="button is-primary is-light">Comprar</button>
-            <button class="button is-link is-light">Carrinho</button>
+            <button class="button is-primary is-light" routerLink="/carrinho">
+              Comprar
+            </button>
+            <button class="button is-link is-light" routerLink="/carrinho">
+              Carrinho
+            </button>
           </div>
         </div>
         <div class="card">
@@ -84,8 +88,12 @@
           <p>1Kg ração p/gato</p>
           <p>por: R$ 79,90</p>
           <div class="buttons">
-            <button class="button is-primary is-light">Comprar</button>
-            <button class="button is-link is-light">Carrinho</button>
+            <button class="button is-primary is-light" routerLink="/carrinho">
+              Comprar
+            </button>
+            <button class="button is-link is-light" routerLink="/carrinho">
+              Carrinho
+            </button>
           </div>
         </div>
         <div class="card">
@@ -100,7 +108,9 @@
           <p>coleira</p>
           <p>por: R$ 39,90</p>
           <div class="buttons">
-            <button class="button is-primary is-light">Comprar</button>
+            <button class="button is-primary is-light" routerLink="/carrinho">
+              Comprar
+            </button>
             <button class="button is-link is-light">Carrinho</button>
           </div>
         </div>
@@ -111,21 +121,22 @@
     <a class="pagination-previous is-disabled" title="This is the first page"
       >voltar</a
     >
-    <a class="pagination-next">Próxima Página</a>
+    <a class="pagination-next" routerLink="">Próxima Página</a>
     <ul class="pagination-list">
       <li>
         <a
           class="pagination-link is-current"
           aria-label="Page 1"
           aria-current="page"
+          routerLink=""
           >1</a
         >
       </li>
       <li>
-        <a class="pagination-link" aria-label="Goto page 2">2</a>
+        <a class="pagination-link" aria-label="Goto page 2" routerLink="">2</a>
       </li>
       <li>
-        <a class="pagination-link" aria-label="Goto page 3">3</a>
+        <a class="pagination-link" aria-label="Goto page 3" routerLink="">3</a>
       </li>
     </ul>
   </nav>
