@@ -10,6 +10,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AdmProdutoComponent } from './adm-produto/adm-produto.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { PedidoComponent } from './pedido/pedido.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     AdmProdutoComponent,
     ProdutosComponent,
     CarrinhoComponent,
+    PedidoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

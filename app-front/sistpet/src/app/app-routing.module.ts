@@ -7,6 +7,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AdmProdutoComponent } from './adm-produto/adm-produto.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { PedidoComponent } from './pedido/pedido.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'admin', component: AdmProdutoComponent },
   { path: 'produtos', component: ProdutosComponent },
   { path: 'carrinho', component: CarrinhoComponent },
+  { path: 'pedido', component: PedidoComponent },
 ];
 
 @NgModule({
